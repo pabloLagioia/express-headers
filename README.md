@@ -8,9 +8,10 @@ Simple express middleware to validate headers
 ```
 var express = require("express");
 var app = express();
-var validateHeader = require("express-headers");
+var headers = require("express-headers");
 
-app.use(validateHeader("authorization")); //make sure there's an authorization header in the request
-app.use(validateHeader("content-type", "application/json")); //make sure there's a content-type header matching application/json
+app.use(headers.rename("x-auth-token", "authorization")); //rename x-auth-token to authorization header
+app.use(headers.validate("authorization")); //make sure there's an authorization header in the request
+app.use(headers.validate("content-type", "application/json")); //make sure there's a content-type header matching application/json
 ...
 ```
