@@ -2,7 +2,8 @@
 Simple express middleware to validate headers
 
 ## Usage
-`validateHeader(name [, value])`
+`headers.validate(name [, value])` Validates the existance of a header and its value
+`headers.rename(from, to)` Renames header 'from' to 'to'
 
 # Example
 ```
