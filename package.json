@@ -1,0 +1,26 @@
+{
+  "name": "express-headers",
+  "version": "0.0.1",
+  "description": "express middleware to validate headers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pabloLagioia/express-headers.git"
+  },
+  "keywords": [
+    "express",
+    "headers"
+  ],
+  "author": "pablo.lagioia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloLagioia/express-headers/issues"
+  },
+  "homepage": "https://github.com/pabloLagioia/express-headers#readme",
+  "dependencies": {
+    "halson": "^2.3.1"
+  }
+}
