@@ -4,6 +4,10 @@ module.exports = {
 
   validate: function(header, value) {
 
+    if (!header) {
+      throw new Error("Error in headers middleware. Expected header to be a valid string");
+    }
+
     return function(req, res, next) {
 
       var headerValue = req.header(header);
@@ -26,10 +30,16 @@ module.exports = {
 
       resource.addLink("help", "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1");
 
+      var statusCode = 400;
+
+      if (header.toLowerCase() === "content-type") {
+        statusCode = 415;
+      }
+
       return res
               .header("Content-Type", "application/vnd.error+json")
               .header("Content-Language", "en-US")
-              .status(400)
+              .status(statusCode)
               .send(resource);
 
     }

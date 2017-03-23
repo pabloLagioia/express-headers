@@ -1,10 +1,10 @@
 {
   "name": "express-headers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "express middleware to validate headers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,11 @@
   "homepage": "https://github.com/pabloLagioia/express-headers#readme",
   "dependencies": {
     "halson": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0"
   }
 }
