@@ -2,10 +2,14 @@ var halson = require("halson");
 
 module.exports = {
 
-  validate: function(header, value) {
+  validate: function(header, values) {
 
     if (!header) {
       throw new Error("Error in headers middleware. Expected header to be a valid string");
+    }
+
+    if (typeof values === "string") {
+      values = [values];
     }
 
     return function(req, res, next) {
@@ -14,13 +18,21 @@ module.exports = {
 
       if (headerValue !== undefined) {
 
-        if (value === undefined) {
+        if (values === undefined || values.length === 0) {
+          return next();
+        }
+
+        var some = values.some(function(value) {
+          return headerValue.match(new RegExp(value.toLowerCase()));
+        });
+
+        if (some) {
           return next();
         }
         
-        if (headerValue.toLowerCase() === value.toLowerCase()) {
-          return next();
-        }
+        // if (headerValue.toLowerCase() === value.toLowerCase()) {
+        //   return next();
+        // }
         
       }
 
