@@ -58,7 +58,8 @@ module.exports = {
 
     return function(req, res, next) {
 
-      var paramValue = req.query[paramName];
+      const key = Object.keys(req.query).find(key => key.toLowerCase() === paramName.toLowerCase());
+      const paramValue = req.query[key];
 
       if (paramValue) {
         req.headers[paramName.toLowerCase()] = paramValue;
