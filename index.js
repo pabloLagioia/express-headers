@@ -30,10 +30,6 @@ module.exports = {
           return next();
         }
         
-        // if (headerValue.toLowerCase() === value.toLowerCase()) {
-        //   return next();
-        // }
-        
       }
 
       var resource = halson({
@@ -65,7 +61,7 @@ module.exports = {
       var paramValue = req.query[paramName];
 
       if (paramValue) {
-        req.headers[paramName] = paramValue;
+        req.headers[paramName.toLowerCase()] = paramValue;
       }
 
       next();
